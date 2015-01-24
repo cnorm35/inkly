@@ -10,11 +10,11 @@
 				<p><strong><%= @post.user.email if @post.user %></strong></p>
 				<% if @post.user == current_user %>
 					<%= link_to edit_post_path(@post)  do %>
-              <span class="glyphicon glyphicon-edit"></span> Edit
-            <% end %>
-            <%= link_to @post, method: :delete, data: { confirm: "Are you sure?" }  do%>
-              <span class="glyphicon glyphicon-trash"></span> Delete
-            <% end %>
+            <span class="glyphicon glyphicon-edit"></span> Edit
+          <% end %>
+          <%= link_to @post, method: :delete, data: { confirm: "Are you sure?" }  do%>
+            <span class="glyphicon glyphicon-trash"></span> Delete
+          <% end %>
 				<% end %>
 			</div>
 		</div>
