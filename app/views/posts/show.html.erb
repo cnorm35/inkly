@@ -1,0 +1,17 @@
+<%= link_to 'Back', posts_path %>
+<div class="row">
+	<div class="col-md-offset-2 col-md-8">
+		<div class="panel panel-default">
+			<div class="panel-heading center">
+				<%= image_tag @post.image.url(:medium) %>
+			</div>
+			<div class="panel-body">
+				<p><%= @post.description %></p>
+				<p><strong><%= @post.user.email if @post.user %></strong></p>
+				<% if @post.user == current_user %>
+					<%= link_to 'Edit', edit_post_path(@post) %>
+				<% end %>
+			</div>
+		</div>
+	</div>
+</div>
