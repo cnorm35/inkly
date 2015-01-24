@@ -855,19 +855,3 @@ $page-header-border-color:    $gray-lighter;
 $dl-horizontal-offset:        $component-offset-horizontal;
 //** Horizontal line color.
 $hr-border:                   $gray-lighter;
-
-
-@import "bootstrap-sprockets";
-@import 'bootstrap';
-
-.center {
-	text-align: center;
-}
-
-.navbar-brand {
-	font-weight: bold;
-}
-
-#user_remember_me {
-	margin-left: 0px;
-}
