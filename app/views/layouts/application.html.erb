@@ -10,8 +10,11 @@
 <body>
 	<%= render "layouts/header" %>
 	<div class="container">
-		<% flash.each do |name, msg| %>
-			<%= content_tag(:div, msg, class: "alert alert-#{name}") %>
+		<% flash.each do |type, message| %>
+		  <div class="alert alert-<%= type %> alert-dismissable">
+		    <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+		    <%= message %>
+		  </div>
 		<% end %>
 		<%= yield %>
 	</div>

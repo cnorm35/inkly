@@ -857,6 +857,8 @@ $dl-horizontal-offset:        $component-offset-horizontal;
 $hr-border:                   $gray-lighter;
 
 
+
+
 @import "bootstrap-sprockets";
 @import 'bootstrap';
 
@@ -871,3 +873,15 @@ $hr-border:                   $gray-lighter;
 #user_remember_me {
 	margin-left: 0px;
 }
+
+.alert-notice {
+    background-color: #d9edf7;
+    border-color: #444;
+    color: #444;
+    text-align: left;
+ }
+
+
+
+
+
