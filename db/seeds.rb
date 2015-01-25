@@ -13,3 +13,11 @@
 	user.password_confirmation = "password"
 	user.save!
 end
+
+
+5.times do
+	post = Post.new
+	post.description = { Faker::Lorem.sentence(3) }
+	image_file_name = ""
+	image_content_type = "image/jpeg"
+end
