@@ -2,8 +2,8 @@
   <% @users.each do |user| %>
     <div class="box">
       <%= link_to image_tag(user.avatar.url(:medium)), user, class: "img-circle" %>
-      <div class="panel-body">
-        <%= user.name %><br/>
+      <div class="panel-body center">
+        <strong><%= user.name %></strong><br/>
       </div>
     </div>
   <% end %>
