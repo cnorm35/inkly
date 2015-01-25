@@ -1,2 +1,18 @@
 <%= @user.name %>
-<%= image_tag @user.avatar.url %>
+<%= image_tag(@user.avatar.url(:medium)) %>
+<!-- shared stats partial -->
+<div>
+	<a href="<%= following_user_path(@user) %>">
+		<strong><%= @user.following.count %></strong>
+		following
+	</a>
+</div>
+<div>
+	<a href="<%= following_user_path(@user) %>">
+		<strong><%= @user.followers.count %></strong>
+		followers
+	</a>
+</div>
+<div>
+	<%= render "follow_form" %>
+</div>

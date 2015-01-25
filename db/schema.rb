@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150125151559) do
+ActiveRecord::Schema.define(version: 20150125153829) do
 
   create_table "posts", force: :cascade do |t|
     t.string   "description",             limit: 255
@@ -39,6 +39,17 @@ ActiveRecord::Schema.define(version: 20150125151559) do
   add_index "posts", ["cached_weighted_score"], name: "index_posts_on_cached_weighted_score", using: :btree
   add_index "posts", ["cached_weighted_total"], name: "index_posts_on_cached_weighted_total", using: :btree
   add_index "posts", ["user_id"], name: "index_posts_on_user_id", using: :btree
+
+  create_table "relationships", force: :cascade do |t|
+    t.integer  "follower_id", limit: 4
+    t.integer  "followed_id", limit: 4
+    t.datetime "created_at",            null: false
+    t.datetime "updated_at",            null: false
+  end
+
+  add_index "relationships", ["followed_id"], name: "index_relationships_on_followed_id", using: :btree
+  add_index "relationships", ["follower_id", "followed_id"], name: "index_relationships_on_follower_id_and_followed_id", unique: true, using: :btree
+  add_index "relationships", ["follower_id"], name: "index_relationships_on_follower_id", using: :btree
 
   create_table "users", force: :cascade do |t|
     t.string   "email",                  limit: 255, default: "", null: false

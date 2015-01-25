@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  root 'posts#index'
   resources :posts do
     member do
       put "upvote", to: "posts#upvote"
@@ -7,8 +8,14 @@ Rails.application.routes.draw do
     end
   end
   devise_for :users
-  resources :users, only: [:index, :show]
-  root 'posts#index'
+  resources :users do
+    member do
+      get :following, :followers
+    end
+  end
+
+  resources :relationships, only: [:create, :destroy]
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
