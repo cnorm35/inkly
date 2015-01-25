@@ -16,9 +16,16 @@
               <i class="fa fa-trash-o"></i> Delete
             <% end %>
             </div>
-              <i class="fa fa-caret-square-o-up fa-lg"></i>
-              <i class="fa fa-caret-square-o-down fa-lg"></i>
         <% end %>
+        <% if user_signed_in? %>
+         <%= link_to upvote_post_path(post), remote: true, method: :put do %>
+            <i class="fa fa-caret-square-o-up fa-lg"></i>
+          <% end %>
+          <%= link_to downvote_post_path(post), remote: true, method: :put do %>
+            <i class="fa fa-caret-square-o-down fa-lg"></i>
+          <% end %>
+        <% end %>
+        <strong><%= post.score %></strong>
       </div>
     </div>
   <% end %>

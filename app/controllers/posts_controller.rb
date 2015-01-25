@@ -1,5 +1,5 @@
 class PostsController < ApplicationController
-	before_action :set_post, only: [:show, :edit, :update, :destroy]
+	before_action :set_post, only: [:show, :edit, :update, :destroy, :upvote, :downvote]
 	before_action :correct_user, only: [:edit, :update, :destroy]
   before_action :authenticate_user!, except: [:index, :show]
 
@@ -30,7 +30,7 @@ class PostsController < ApplicationController
 	def update
 		if @post.update(post_params)
 			flash[:success] = "Updated Post"
-			redirect_to @post
+			redirect_to @posts
 		else
 			render action: "edit"
 		end
@@ -39,6 +39,16 @@ class PostsController < ApplicationController
 	def destroy
 		@post.destroy
 		flash[:danger] = "Post Deleted"
+		redirect_to posts_path
+	end
+
+	def upvote
+		@post.upvote_by current_user
+		redirect_to posts_path
+	end
+
+	def downvote
+		@post.downvote_by current_user
 		redirect_to posts_path
 	end
 
