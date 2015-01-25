@@ -17,6 +17,11 @@ gem 'will_paginate-bootstrap'
 gem 'acts_as_votable'
 gem 'sdoc', '~> 0.4.0', group: :doc
 
+group :production do
+	gem 'pg'
+	gem 'rails_12factor'
+end
+
 
 # Use Unicorn as the app server
 # gem 'unicorn'
@@ -27,6 +32,7 @@ group :development, :test do
 	gem 'binding_of_caller'
 	gem 'faker'
   gem 'spring'
-  gem 'mysql2'
+  #gem 'mysql2'
+  gem 'sqlite3'
 end
 
