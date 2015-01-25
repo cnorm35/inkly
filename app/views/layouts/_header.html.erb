@@ -18,7 +18,12 @@
         <% if user_signed_in? %>
          <li>
             <%= link_to new_post_path do %>
-              <span class="glyphicon glyphicon-plus"></span>New Post
+              <i class="fa fa-plus-square-o"></i>New Post
+            <% end %>
+          </li>
+          <li>
+            <%= link_to users_path do %>
+              <i class="fa fa-users"></i>Members
             <% end %>
           </li>
           <li><%= link_to "Account Settings", edit_user_registration_path %></li>
