@@ -16,6 +16,7 @@ gem 'will_paginate'
 gem 'will_paginate-bootstrap'
 gem 'acts_as_votable'
 gem 'aws-sdk'
+gem 'newrelic_rpm'
 gem 'sdoc', '~> 0.4.0', group: :doc
 
 group :production do
