@@ -52,6 +52,10 @@ class PostsController < ApplicationController
 		redirect_to posts_path
 	end
 
+	def top
+		@posts = Post.all.score.order("DESC").paginate(page: params[:page], per_page: 10)
+	end
+
 	private
 
 		def set_post

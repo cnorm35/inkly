@@ -3,6 +3,7 @@ Rails.application.routes.draw do
     member do
       put "upvote", to: "posts#upvote"
       put "downvote", to: "posts#downvote"
+      get "top", to: "post#top"
     end
   end
   devise_for :users
