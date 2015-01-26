@@ -27,8 +27,8 @@
             <i class="fa fa-caret-square-o-down fa-2x"></i>
           <% end %>
         <% end %>
-        <div class="score">
-          <strong><%= post.score %></strong>
+        <div id="post-<%= post.id %>-score" class="post-score">
+          <%= post.score %>
         </div>
       </div>
     </div>
