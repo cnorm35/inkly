@@ -48,12 +48,15 @@ class PostsController < ApplicationController
 			format.html { redirect_to root_path }
 			format.js
 		end
-		#redirect_to posts_path
+
 	end
 
 	def downvote
 		@post.downvote_by current_user
-		redirect_to posts_path
+		respond_to do |format|
+			format.html { redirect_to root_path }
+			format.js
+		end
 	end
 
 	def top
