@@ -17,6 +17,7 @@ gem 'will_paginate-bootstrap'
 gem 'acts_as_votable'
 gem 'aws-sdk'
 gem 'newrelic_rpm'
+gem 'yelp'
 gem 'sdoc', '~> 0.4.0', group: :doc
 
 group :production do
@@ -34,6 +35,7 @@ group :development, :test do
 	gem 'binding_of_caller'
 	gem 'faker'
   gem 'spring'
+  gem 'hirb'
   #gem 'mysql2'
   gem 'sqlite3'
 end

@@ -11,7 +11,17 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150125153829) do
+ActiveRecord::Schema.define(version: 20150127190025) do
+
+  create_table "artists", force: :cascade do |t|
+    t.string   "shop_name"
+    t.string   "street_address"
+    t.string   "city"
+    t.string   "state"
+    t.integer  "zip_code"
+    t.datetime "created_at",     null: false
+    t.datetime "updated_at",     null: false
+  end
 
   create_table "posts", force: :cascade do |t|
     t.string   "description"
@@ -69,9 +79,12 @@ ActiveRecord::Schema.define(version: 20150125153829) do
     t.string   "avatar_content_type"
     t.integer  "avatar_file_size"
     t.datetime "avatar_updated_at"
+    t.integer  "profile_id"
+    t.string   "profile_type"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true
+  add_index "users", ["profile_id", "profile_type"], name: "index_users_on_profile_id_and_profile_type"
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
 
   create_table "votes", force: :cascade do |t|
