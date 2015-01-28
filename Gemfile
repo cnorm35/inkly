@@ -18,6 +18,7 @@ gem 'acts_as_votable'
 gem 'aws-sdk'
 gem 'newrelic_rpm'
 gem 'yelp'
+gem 'geocoder'
 gem 'sdoc', '~> 0.4.0', group: :doc
 
 group :production do

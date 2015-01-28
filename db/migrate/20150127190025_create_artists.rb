@@ -5,7 +5,7 @@ class CreateArtists < ActiveRecord::Migration
     	t.string :street_address
     	t.string :city
     	t.string :state
-    	t.integer :zip_code
+    	t.string :zip_code
 
       t.timestamps null: false
     end

@@ -32,9 +32,9 @@ class ArtistsController < ApplicationController
 
 	private 
 		def artist_params
-			# params.require(:artist).permit(:shop_name, :street_address, :city, :state,
-			# 																:zip_code, user_attributes: [:id, :email,
-			# 																															:name, :password])
-			params.require(:artist).permit!
+			params.require(:artist).permit(:shop_name, :street_address, :city, :state,
+																			:zip_code, :latitude, :longitude, user_attributes: [:id, :email,
+																																		:name, :password])
+			#params.require(:artist).permit!
 		end
 end

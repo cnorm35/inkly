@@ -16,6 +16,10 @@
 	<%= f.text_field :state %>
 </div>
 <div>
+	<%= f.label :zip_code %>
+	<%= f.text_field :zip_code %>
+</div>
+<div>
 	<%= f.fields_for :user do |u| %>
 		<div class="form-group">
         <%= u.label :name %>
