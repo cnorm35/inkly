@@ -24,6 +24,9 @@
     </div>
     </div>   
 </div>  
+<%= @yelp_data.businesses.each do |something| %>
+  <p><%= something %></p>
+<% end %>
 <div id="map-container">
     <div id="map-canvas">
         
@@ -64,7 +67,7 @@ var marker = new google.maps.Marker({
         position:myCenter,
         });
 
-        marker.setMap(map);
+        marker.setMap(map); 
 
         
    // geocoding 

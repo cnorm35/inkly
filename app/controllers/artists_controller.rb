@@ -4,6 +4,9 @@ class ArtistsController < ApplicationController
 
 	def show
 		@artist = Artist.find(params[:id])
+		business_name = { term: "#{@artist.shop_name}"}
+		@yelp_data = Yelp.client.search("#{@artist.city}", business_name)
+		#render json: @yelp_data
 	end
 
 	def new
@@ -15,6 +18,7 @@ class ArtistsController < ApplicationController
 		@artist = Artist.new(artist_params)
 		if @artist.save
 			flash[:success] = "New Artist Created"
+			sign_in(@artist.user)
 			redirect_to @artist
 		else
 			render :new
