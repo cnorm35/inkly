@@ -41,10 +41,12 @@ var map;
 var startLat = <%= @artist.latitude %>;
 var startLong = <%= @artist.longitude %>;
 
+
 function initialize() {
     // var myLatnlng = 
+    var myCenter = new google.maps.LatLng(startLat,startLong)
    var mapOptions = {
-          center: new google.maps.LatLng(startLat, startLong),
+          center: myCenter,
           zoom: 14,
           mapTypeId: google.maps.MapTypeId.NORMAL,
           panControl: true,
@@ -53,14 +55,17 @@ function initialize() {
           overviewMapControl: true
         };
 
+
+
 // initializing map
 map = new google.maps.Map(document.getElementById("map-canvas"),mapOptions);
 
- // var marker = new google.maps.Marker({
- //      position: "39.946096, -75.219235",
- //      map: map,
- //      title: 'Hello World!'
- //  });
+var marker = new google.maps.Marker({
+        position:myCenter,
+        });
+
+        marker.setMap(map);
+
         
    // geocoding 
       // var geocoding  = new google.maps.Geocoder();
@@ -70,9 +75,9 @@ map = new google.maps.Map(document.getElementById("map-canvas"),mapOptions);
       // $("#submit_button_reverse").click(function(){
       //   codeLatLng(geocoding);
       // });
-      
-   
 }
+
+
 
 // var info;
 // function codeLatLng(geocoding){

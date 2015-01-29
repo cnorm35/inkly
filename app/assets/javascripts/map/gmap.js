@@ -18,14 +18,14 @@ function initialize() {
         // initializing map
         map = new google.maps.Map(document.getElementById("map-canvas"),mapOptions);
         
-   // geocoding 
-      // var geocoding  = new google.maps.Geocoder();
-      // $("#submit_button_geocoding").click(function(){
-      //   codeAddress(geocoding);
-      // });
-      // $("#submit_button_reverse").click(function(){
-      //   codeLatLng(geocoding);
-      // });
+   //geocoding 
+      var geocoding  = new google.maps.Geocoder();
+      $("#submit_button_geocoding").click(function(){
+        codeAddress(geocoding);
+      });
+      $("#submit_button_reverse").click(function(){
+        codeLatLng(geocoding);
+      });
       
    
 }
