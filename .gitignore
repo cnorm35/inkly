@@ -16,3 +16,6 @@
 /tmp
 .DS_Store
 /public/system/*
+
+inkly_dev
+inkly_test
