@@ -1,32 +1,33 @@
 <div class="container">
-    <div class="row panel">
-        <div class="col-md-8  col-xs-12">
-           <img src="http://lorempixel.com/output/people-q-c-100-100-1.jpg" class="img-thumbnail picture hidden-xs" />
-           <img src="http://lorempixel.com/output/people-q-c-100-100-1.jpg" class="img-thumbnail visible-xs picture_mob" />
-           <div class="header">
-                <h1><%= @artist.user.name %></h1>
-                <h4><%= @artist.shop_name %></h4>
-                    <span>
-                       Blurb or quick intro.
-                    </span>
-                    <p id="artist-street"><%= @artist.street_address %></p>
-                    <p id="artist-city-and-state"><%= "#{@artist.city}, #{@artist.state}" %></p>
-                    <p id="artist-zip-code"><%= @artist.zip_code %></p>
-           </div>
+    <div class="row">
+      <div class="col-md-8" >
+        <% if @artist.has_avatar? %>
+          <%= image_tag(@artist.user.avatar.url(:medium), class: "profile-image") %>
+        <% else %>
+          <%= image_tag("squid1.png", class: "profile-image") %>
+        <% end %>
+        <div class="col-md-4">
+          <div class="header">
+               <h1><%= @artist.user.name %></h1>
+               <h4><%= @artist.shop_name %></h4>
+                   <span>
+                      Blurb or quick intro.
+                   </span>
+                   <p id="artist-street"><%= @artist.street_address %></p>
+                   <p id="artist-city-and-state"><%= "#{@artist.city}, #{@artist.state}" %></p>
+                   <p id="artist-zip-code"><%= @artist.zip_code %></p>
+          </div>
         </div>
-        <div class="row nav">    
-        <div class="col-md-4"></div>
-        <div class="col-md-8 col-xs-12" style="margin: 0px;padding: 0px;">
-            <div class="col-md-4 col-xs-4 well"><i class="fa fa-weixin fa-lg"></i> 16</div>
-            <div class="col-md-4 col-xs-4 well"><i class="fa fa-heart-o fa-lg"></i> 14</div>
-            <div class="col-md-4 col-xs-4 well"><i class="fa fa-thumbs-o-up fa-lg"></i> 26</div>
-        </div>
-    </div>
-    </div>   
-</div>  
-<%= @yelp_data.businesses.each do |something| %>
-  <p><%= something %></p>
-<% end %>
+      </div>
+</div>
+<div class="row">
+  <div class="col-md-8">
+     <button class="btn btn-primary">Follow</button>
+     <button class="btn btn-primary">Review</button>
+     <button class="btn btn-primary">Portfolio</button>
+  </div>
+</div>
+
 <div id="map-container">
     <div id="map-canvas">
         

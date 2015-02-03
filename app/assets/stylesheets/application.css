@@ -14,3 +14,21 @@
  *= require 'masonry/transitions'
  *= require_tree .
  */
+
+ #home-jumbotron {
+ 	background: url('hero_image2.png');
+ }
+
+ .jumbotron {
+  margin-bottom: 0px;
+  height: 350px;
+  color: white;
+  text-shadow: black 0.3em 0.3em 0.3em;
+  background:transparent;
+}
+
+.profile-image {
+	height: 50%;
+	width: 35%;
+	float: left;
+}

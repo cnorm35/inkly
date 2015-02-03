@@ -1,1 +1,15 @@
-This is the artist Index page
+<div id="artists" class="transitions-enabled">
+  <% @artists.each do |artist| %>
+    <div class="box">
+    	<% if artist.has_avatar? %>
+      	<%= link_to image_tag(artist.user.avatar.url(:medium)), artist, class: "img-circle" %>
+      <% else %>
+      	<%= link_to image_tag("squid1.png"), artist, class: "img-circle" %>
+      <% end %>
+      <div class="panel-body center">
+        <strong><%= artist.user.name %></strong><br/>
+        <p><%= artist.shop_name %></p>
+      </div>
+    </div>
+  <% end %>
+</div>

@@ -8,4 +8,11 @@ class Artist < ActiveRecord::Base
 	def address
 		"#{self.street_address} #{self.city}, #{self.state} #{self.zip_code}"
 	end
+
+	def has_avatar?
+		retval = false
+		if self.user.avatar.present?
+			retval = true
+		end
+	end
 end
