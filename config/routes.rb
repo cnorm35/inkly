@@ -16,7 +16,11 @@ Rails.application.routes.draw do
     end
   end
 
-  resources :artists
+  resources :artists do
+    member do
+      get :following, :followers
+    end
+  end
 
   resources :relationships, only: [:create, :destroy]
 

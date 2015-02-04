@@ -35,6 +35,20 @@ class ArtistsController < ApplicationController
 	def destroy
 	end
 
+	def following
+		@title = "Following"
+		@artist = Artist.find(params[:id])
+		@artists = @artist.user.following.paginate(page: params[:page])
+		render "show_follow"
+	end
+
+	def followers
+		@title = "Followers"
+		@artist = Artist.find(params[:id])
+		@artists = @artist.user.following.paginate(page: params[:page])
+		render "show_follow"
+	end
+
 	private 
 		def artist_params
 			params.require(:artist).permit(:shop_name, :street_address, :city, :state,
