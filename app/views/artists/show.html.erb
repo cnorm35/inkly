@@ -23,7 +23,7 @@
 <div class="row">
   <div class="col-md-8">
     <div id="follow_form">
-      <%= render "follow_form" %>
+      <%= render "follow_form" unless current_user == @artist.user%>
     </div>
      <button class="btn btn-primary">Review</button>
      <button class="btn btn-primary">Portfolio</button>
