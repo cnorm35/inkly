@@ -6,7 +6,11 @@ class UsersController < ApplicationController
 	end
 
 	def show
-		@user = User.find(params[:id])
+  	@user = User.find(params[:id])
+      if @user.profile_type == "Artist"
+          @artist = Artist.find(current_user.profile_id)
+          #redirect_to @artist
+      end
 	end
 
 	def following
