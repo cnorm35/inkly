@@ -1,11 +1,15 @@
 <%= render "pages/home" unless user_signed_in? %>
 
-<div id="posts" class="transitions-enabled">
+<div id="posts" class="transitions-enabled modal-gallery">
   <% @posts.each do |post| %>
     <div class="box panel panel-default">
-      <%= link_to image_tag(post.image.url(:medium)), post %>
+      <a href="<%= post.image.url %>" data-gallery>
+        <%= image_tag(post.image.url) %>
+      </a>
+      <%= render "lightbox" %>
       <div class="panel-body">
         <%= post.description %><br/>
+
         <strong><%= post.user.name if post.user %></strong>
         <% if current_user && post.user == current_user %>
           <div class="actions"> 
@@ -35,6 +39,9 @@
   <% end %>
 </div>
 
+
 <div class="center">
   <%= will_paginate @pins, renderer: BootstrapPagination::Rails %>
 </div>
+
+

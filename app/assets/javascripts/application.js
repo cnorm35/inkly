@@ -16,6 +16,8 @@
 //= require bootstrap
 //= require turbolinks
 //= require masonry/jquery.masonry
+//= require jquery.blueimp-gallery.min
+//= require bootstrap-image-gallery.min
 //= require_tree .
 
 //YELP & GOOLGE MAPS CODE

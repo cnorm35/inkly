@@ -12,6 +12,8 @@
  *
  *= require_self
  *= require 'masonry/transitions'
+ *= require blueimp-gallery.min
+ *= require bootstrap-image-gallery.min
  *= require_tree .
  */
 
