@@ -1,40 +1,80 @@
-<div class="container">
-    <div class="row">
-      <div class="col-md-8" >
-        <% if @artist.has_avatar? %>
-          <%= image_tag(@artist.user.avatar.url(:medium), class: "profile-image") %>
-        <% else %>
-          <%= image_tag("squid1.png", class: "profile-image") %>
-        <% end %>
-        <div class="col-md-4">
-          <div class="header">
-               <h1><%= @artist.user.name %></h1>
-               <h4><%= @artist.shop_name %></h4>
-                   <span>
-                      Blurb or quick intro.
-                   </span>
-                   <p id="artist-street"><%= @artist.street_address %></p>
-                   <p id="artist-city-and-state"><%= "#{@artist.city}, #{@artist.state}" %></p>
-                   <p id="artist-zip-code"><%= @artist.zip_code %></p>
-          </div>
-        </div>
-      </div>
+
+<div class="row">
+  <div class="col-md-6" >
+    <% if @artist.has_avatar? %>
+      <%= image_tag(@artist.user.avatar.url(:medium), class: "profile-image") %>
+    <% else %>
+      <%= image_tag("squid1.png", class: "profile-image") %>
+    <% end %>
+  </div>
+  <div class="col-md-6">
+    <h1><%= @artist.user.name %></h1>
+     <p><b>About:</b> Small batch Pinterest Bushwick, flexitarian paleo leggings Brooklyn literally seitan locavore chambray umami actually Williamsburg pug. Blue Bottle heirloom post-ironic readymade roof party keffiyeh put a bird on it. Seitan crucifix try-hard salvia farm-to-table Wes Anderson, </p>
+     <h4><%= @artist.shop_name unless @artist.shop_name.empty? %></h4>
+     <p id="artist-street"><%= @artist.street_address %></p>
+     <p id="artist-city-and-state"><%= "#{@artist.city}, #{@artist.state}" %></p>
+     <p id="artist-zip-code"><%= @artist.zip_code %></p>
+
+  </div>
 </div>
 <div class="row">
-  <div class="col-md-8">
+  <div class="col-sm-1" id="artist-page-follow">
     <div id="follow_form">
-      <%= render "follow_form" unless current_user == @artist.user%>
+      <%= render "follow_form" unless current_user == @artist.user && current_user %>
     </div>
-     <button class="btn btn-primary">Review</button>
-     <button class="btn btn-primary">Portfolio</button>
   </div>
 </div>
 
-<div id="map-container">
+<div class="row">
+  <div class="col-md-12">
+    <div id="map-container">
     <div id="map-canvas">
         
     </div>
 </div>
+  </div>
+</div>
+<div class="row">
+  <div id="posts" class="transitions-enabled modal-gallery">
+    <% @posts.each do |post| %>
+      <div class="box panel panel-default">
+        <a href="<%= post.image.url %>" data-gallery>
+          <%= image_tag(post.image.url) %>
+        </a>
+        <%= render "posts/lightbox" %>
+        <div class="panel-body">
+          <%= post.description %><br/>
+          <strong><%=link_to post.user.name, artist_path(post.user.profile_id) if post.user %></strong>
+          <p><%= link_to "Comments", post_path(post) %></p>
+          <% if current_user && post.user == current_user %>
+            <div class="actions"> 
+              <%= link_to edit_post_path(post)  do %>
+                <i class="fa fa-pencil-square-o"></i> Edit
+              <% end %>
+              <%= link_to post, method: :delete, data: { confirm: "Are you sure?" }  do %>
+                <i class="fa fa-trash-o"></i> Delete
+              <% end %>
+              </div>
+          <% end %>
+        </div>
+        <div class="panel-footer center">
+          <% if user_signed_in? %>
+           <%= link_to upvote_post_path(post), remote: true, method: :put do %>
+              <i class="fa fa-caret-square-o-up fa-2x"></i>
+            <% end %>
+            <%= link_to downvote_post_path(post), remote: true, method: :put do %>
+              <i class="fa fa-caret-square-o-down fa-2x"></i>
+            <% end %>
+          <% end %>
+          <div id="post-<%= post.id %>-score" class="post-score">
+            <%= post.score %>
+          </div>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>
+
 
 <script type="text/javascript">
 //     $(window).load(function() {
@@ -50,7 +90,7 @@ var startLong = <%= @artist.longitude %>;
 
 function initialize() {
     // var myLatnlng = 
-    var myCenter = new google.maps.LatLng(startLat,startLong)
+  var myCenter = new google.maps.LatLng(startLat,startLong)
    var mapOptions = {
           center: myCenter,
           zoom: 14,

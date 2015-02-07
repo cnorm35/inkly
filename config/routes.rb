@@ -1,6 +1,9 @@
 Rails.application.routes.draw do
+  resources :comments
+
   root 'posts#index'
   resources :posts do
+    resources :comments, only: [:new, :create, :delete]
     member do
       put "upvote", to: "posts#upvote"
       put "downvote", to: "posts#downvote"

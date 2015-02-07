@@ -31,8 +31,16 @@
   background:transparent;
 }
 
-.profile-image {
+/*.profile-image {
 	height: 50%;
 	width: 35%;
 	float: left;
+}*/
+
+#new-comment {
+	padding-left: 0px;
+}
+
+#comment-text-area {
+	min-height: 100px;
 }

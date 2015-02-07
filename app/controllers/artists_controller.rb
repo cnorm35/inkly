@@ -7,6 +7,7 @@ class ArtistsController < ApplicationController
 		@artist = Artist.find(params[:id])
 		business_name = { term: "#{@artist.shop_name}"}
 		@yelp_data = Yelp.client.search("#{@artist.city}", business_name)
+		@posts = Post.where(user_id: @artist.user.id)
 		#render json: @yelp_data
 	end
 
