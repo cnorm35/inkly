@@ -18,6 +18,8 @@
 //= require masonry/jquery.masonry
 //= require jquery.blueimp-gallery.min
 //= require bootstrap-image-gallery.min
+//= require jquery-fileupload/basic
+//= require jquery-fileupload/vendor/tmpl
 //= require_tree .
 
 //YELP & GOOLGE MAPS CODE

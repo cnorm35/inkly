@@ -14,6 +14,8 @@
  *= require 'masonry/transitions'
  *= require blueimp-gallery.min
  *= require bootstrap-image-gallery.min
+ *= require jquery.fileupload
+ *= require jquery.fileupload-ui
  *= require_tree .
  */
 
