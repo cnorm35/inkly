@@ -41,7 +41,7 @@
         <a href="<%= post.image.url %>" data-gallery>
           <%= image_tag(post.image.url) %>
         </a>
-        <%= render "posts/lightbox" %>
+        <%= render "artist_lightbox" %>
         <div class="panel-body">
           <%= post.description %><br/>
           <strong><%=link_to post.user.name, artist_path(post.user.profile_id) if post.user %></strong>
