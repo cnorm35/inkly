@@ -14,7 +14,6 @@
 //= require jquery_ujs
 //= require jquery.turbolinks
 //= require bootstrap
-//= require turbolinks
 //= require masonry/jquery.masonry
 //= require jquery.blueimp-gallery.min
 //= require bootstrap-image-gallery.min
